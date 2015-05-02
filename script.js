@@ -7,7 +7,7 @@
     chrome.storage.local.get({names: []} , function(result) {
         var names = result.names;
 
-        for (i = 0; i < names.length; i++) { 
+        for (var i = 0; i < names.length; i++) { 
             hide(names[i]);
         }
     });    
@@ -32,13 +32,15 @@ function closest(elem, selector) {
 }
 
 function hide(name) {
-	var as = document.getElementsByClassName("timelineBookmarkInfoUsername");
-	//var as = document.getElementsByTagName("a");
+	//var as = document.getElementsByClassName("timelineBookmarkInfoUsername");
+	var as = document.getElementsByTagName("a");
 
 	for (var i = 0; i < as.length; i++) {
 
-		console.log(as[i] + " " + as.length);
+		console.log(as[i]);
 		if(as[i].innerHTML.indexOf(name) != -1) {
+			var temp = as[i].innerHTML;
+			console.log(temp + " " + "deleted");
 			remove(closest(as[i], ".timelineItem"));
 		}
 	}
@@ -55,7 +57,6 @@ function myPluginLoadEvent(func) {
         window.onload = function () {
 
             oldOnLoad();
-
             func();
         }
     }
@@ -66,9 +67,7 @@ myPluginLoadEvent(function() {
     chrome.storage.local.get({names: []} , function(result) {
         var names = result.names;
 
-        alert(names);
-
-        for (i = 0; i < names.length; i++) {
+        for (var i = 0; i < names.length; i++) {
             hide(names[i]);
         }
     });    

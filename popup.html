@@ -14,11 +14,17 @@
             input #save { 
                 font-weight: bold; width: auto; 
             }
+
+            li {
+                cursor: pointer; 
+            }
         </style>
-        <!--><script src="jquery.min.js"></script><-->
         <script src="popup.js"></script>
     </head>
     <body>
+        <p>Blocked beauty</p>
+        <ul id="list"> </ul>
+        <hr>
         <form id="addName" name="form">
             <p>
                 <input id="profile" type="text" maxlength="45" name="name" />
