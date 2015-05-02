@@ -10,6 +10,7 @@ function add() {
         chrome.storage.local.get({names: []} , function(result) {
             var names = result.names;
             names.push(x);
+            alert(names);
             chrome.storage.local.set({names: names}, function () {});
         });
     }
@@ -17,5 +18,5 @@ function add() {
 
 window.addEventListener('load', function(evt) {
 
-    document.getElementById('addName').addEventListener('submit', add);
-});
+    document.getElementById('addName').addEventListener('submit', add)
+})
